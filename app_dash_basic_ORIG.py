@@ -30,7 +30,7 @@ app.layout = html.Div([
     html.H2('Filtering Iris Table Example'),
     dcc.Dropdown(
         id='dropdown',
-        options=[{'label': i, 'value': i} for i in df['Name'].unique()],
+        options=[{'label': i, 'value': i} for i in df['class'].unique()],
         value='LA'
     ),
     html.Div(id='display-table')
@@ -43,7 +43,7 @@ def display_table(value):
     if value is None:
         return generate_table(df)
 
-    dff = df[df['Name']==value]
+    dff = df[df['class']==value]
     return generate_table(dff)
     
 
